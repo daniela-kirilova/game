@@ -1,7 +1,7 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
-const cellsHorizontal = 15;
-const cellsVertical = 10;
+const cellsHorizontal = 5;
+const cellsVertical = 3;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -227,6 +227,11 @@ Events.on(engine, "collisionStart", (event) => {
         if (body.label === "wall") {
           Body.setStatic(body, false);
         }
+        function startAgain() {
+          location.reload();
+        }
+        document.querySelector(".btn").classList.remove("hidden");
+        document.querySelector(".replay").addEventListener("click", startAgain);
       });
     }
   });
